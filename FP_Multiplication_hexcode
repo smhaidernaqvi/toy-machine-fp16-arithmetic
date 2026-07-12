@@ -1,0 +1,66 @@
+00: 0000   constant 0x0000                    
+01: 4440   constant 0x4440                    
+02: 403D   constant 0x403D                    
+03: 0000   constant 0x0000               
+04: 000F   constant 0x000F                    
+05: 7C00   constant 0x7C00                    
+06: 03FF   constant 0x03FF                    
+07: 0400   constant 0x0400               
+08: 000A   constant 0x000A                    
+09: 0001   constant 0x0001                    
+0A: FFFF   constant 0xFFFF                    
+0B: 0800   constant 0x0800               
+0C: 0000   constant 0x0000                    
+0D: 0000   constant 0x0000                    
+0E: 0000   constant 0x0000                    
+0F: 0000   constant 0x0000               
+10: 8101   R[1] <- M[01]                      
+11: 8202   R[2] <- M[02]                      
+12: 8304   R[3] <- M[04]                      
+13: 6413   R[4] <- R[1] >> R[3]          
+14: 6523   R[5] <- R[2] >> R[3]               
+15: 4F45   R[F] <- R[4] ^ R[5]                
+16: 8605   R[6] <- M[05]                      
+17: 3716   R[7] <- R[1] & R[6]           
+18: 3826   R[8] <- R[2] & R[6]                
+19: 8908   R[9] <- M[08]                      
+1A: 6779   R[7] <- R[7] >> R[9]               
+1B: 6889   R[8] <- R[8] >> R[9]          
+1C: 1778   R[7] <- R[7] + R[8]                
+1D: 2773   R[7] <- R[7] - R[3]                
+1E: 8A06   R[A] <- M[06]                      
+1F: 3B1A   R[B] <- R[1] & R[A]           
+20: 3C2A   R[C] <- R[2] & R[A]                
+21: 8D07   R[D] <- M[07]                      
+22: 1BBD   R[B] <- R[B] + R[D]                
+23: 1CCD   R[C] <- R[C] + R[D]           
+24: 1E00   R[E] <- 0000                       
+25: 7201   R[2] <- 0001                       
+26: 760B   R[6] <- 000B                       
+27: C632   if (R[6] == 0) goto 32        
+28: 38C2   R[8] <- R[C] & R[2]                
+29: C82B   if (R[8] == 0) goto 2B             
+2A: 1EEB   R[E] <- R[E] + R[B]                
+2B: 38E2   R[8] <- R[E] & R[2]           
+2C: 6EE2   R[E] <- R[E] >> R[2]               
+2D: 6CC2   R[C] <- R[C] >> R[2]               
+2E: 5883   R[8] <- R[8] << R[3]               
+2F: 1CC8   R[C] <- R[C] + R[8]           
+30: 2662   R[6] <- R[6] - R[2]                
+31: C027   goto 27                            
+32: 5EE2   R[E] <- R[E] << R[2]               
+33: 68C3   R[8] <- R[C] >> R[3]          
+34: 1EE8   R[E] <- R[E] + R[8]                
+35: 860B   R[6] <- M[0B]                      
+36: 38E6   R[8] <- R[E] & R[6]                
+37: C83A   if (R[8] == 0) goto 3A        
+38: 6EE2   R[E] <- R[E] >> R[2]               
+39: 1772   R[7] <- R[7] + R[2]                
+3A: 4EED   R[E] <- R[E] ^ R[D]                
+3B: 5779   R[7] <- R[7] << R[9]          
+3C: 1EE7   R[E] <- R[E] + R[7]                
+3D: 5FF3   R[F] <- R[F] << R[3]               
+3E: 1EEF   R[E] <- R[E] + R[F]                
+3F: 9E03   M[03] <- R[E]                 
+40: 9EFF   write R[E]                    
+41: 0000   halt                          
